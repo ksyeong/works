@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김세영 개인포트폴리오</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- script -->
+    <!-- icon -->
+    <script
+      src="https://kit.fontawesome.com/edd657822c.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        //위치 이동
+        $(window).scroll(function () {
+          let scr = $(document).scrollTop();
+          let m = $("header").outerHeight();
+          // console.log("헤더의 높이는:"+m);
+          // console.log("윈도우의 현재위치"+ scr);
+          for (let i = 0; i < $("section").length; i++) {
+            // console.log("section의 갯수"+i);
+            let sectionTop = $("section").eq(i).offset().top - 80; //80:heder의 scrollTop높이
+            // console.log("섹션의 top높이값"+sectionTop);
+            let sectionBottom = sectionTop + $("section").eq(i).outerHeight();
+            // console.log("섹션의 bottom값"+sectionBottom);
+            if (scr >= sectionTop && scr < sectionBottom) {
+              $(".lotation button").removeClass("on");
+              $(".lotation button").eq(i).addClass("on");
+              // console.log(sectionTop);console.log(sectionBottom);
+            }
+          }
+        });
+        //해당메뉴 클릭시 페이지 스크롤링
+        let s1p = $("#about").offset().top;
+        let s2p = $("#skill").offset().top;
+        let s3p = $("#portfolio").offset().top;
+        let s4p = $("#contact").offset().top;
+        $(".mhome,.ahome").click(function () {
+          $("html,body").animate({ scrollTop: 0 }, 1200);
+        });
+        $(".mabout,.aabout").click(function () {
+          $("html,body").animate({ scrollTop: s1p }, 1200);
+        });
+        $(".mskill,.askill").click(function () {
+          $("html,body").animate({ scrollTop: s2p }, 1200);
+        });
+        $(".mportfolio,.aport").click(function () {
+          $("html,body").animate({ scrollTop: s3p }, 1200);
+        });
+        $(".mcontact,.acontact").click(function () {
+          $("html,body").animate({ scrollTop: s4p }, 1200);
+        });
+        //hanbuger버튼 클릭
+        $(".hambuger").click(function () {
+          $(this).toggleClass("active");
+          $(".aside").toggleClass("show");
+        });
+        //다크,라이트모드
+        $(".day a").hide();
+        let d = 0;
+        $(".changecolor ul li a").click(function () {
+          $("body *").toggleClass("dark");
+          $(this).hide();
+          $(this).parent().siblings().children("a").show();
+          $(".GitHub").toggleClass("wGitHub");
+          $(".changecolor a").toggleClass("darkShadow");
+          return false; //a클릭시 화면새로고침방지
+        });
+        $("nav button").click(function () {
+          $(".aside").toggleClass("show");
+          $(this).toggleClass("close");
+          return false;
+        });
+        //메뉴 hover
+        $("li a").hover(function () {
+          $(this).addClass("over");
+          $(this).parent().siblings().children().removeClass("over");
+        });
+        $("li a").mouseleave(function () {
+          $(this).removeClass("over");
+        });
+        // nav .aside 해당파트클릭시 사라지는 이벤트
+        $(".aside a").click(function () {
+          $(".aside").toggleClass("show");
+          $("nav button").toggleClass("close");
+        });
+        //top버튼 클릭이벤트
+        $(".top,.mhome").click(function () {
+          $("html,body").animate({ scrollTop: "0" }, 1200);
+        });
+        // silck
+        $(".work").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+        });
+      });
+      //copy
+      function copyToClipboard(element) {
+        let $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        // console.log($temp);
+      }
+    </script>
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <script src="slick/slick.min.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/scroll.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tablet.css" />
+    <!-- aos -->
+    <script src="aos/dist/aos.js"></script>
+    <link href="aos/dist/aos.css" rel="stylesheet" />
+    <script>
+      $(document).ready(function () {
+        AOS.init();
+      });
+    </script>
+  </head>
+
+  <body>
+    <!-- 상단영역 -->
+    <header>
+      <div class="wrap">
+        <h1 class="logo"><a href="">seyeong's</a></h1>
+        <nav>
+          <ul class="gnb">
+            <li><a class="mhome">Home</a></li>
+            <li><a class="mabout">About</a></li>
+            <li><a class="mskill">Skill</a></li>
+            <li><a class="mportfolio">Portfolio</a></li>
+            <li><a class="mcontact">Contact</a></li>
+          </ul>
+          <div class="hambuger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="aside">
+            <ul>
+              <li><a class="mhome">Home</a></li>
+              <li><a class="mabout">About</a></li>
+              <li><a class="mskill">Skill</a></li>
+              <li><a class="mportfolio"> Portfolio</a></li>
+              <li><a class="mcontact">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- 타이틀영역 -->
+    <section id="title">
+      <div class="wrap">
+        <div class="cube">
+          <div class="text text1">P</div>
+          <div class="text text2">O</div>
+          <div class="text text3">R</div>
+          <div class="text text4">T</div>
+          <div class="text text5">F</div>
+          <div class="text text6">O</div>
+          <div class="text text7">L</div>
+          <div class="text text8">I</div>
+          <div class="text text9">O</div>
+        </div>
+        <p>My work</p>
+        <a class="scroll mabout">scroll down</a>
+      </div>
+    </section>
+    <!-- 내용영역 -->
+    <section id="about">
+      <div class="wrap">
+        <h2 class="h2">About</h2>
+        <div class="aboutMe">
+          <div class="profile"></div>
+          <div class="inpro">
+            <h3>Flexible</h3>
+            <p>
+              안녕하세요. UI/UX디자인/퍼블리셔 김세영입니다.
+              <span class="block"></span> 저는 사용자의 기억에 남는 웹을
+              만드는것이 목표입니다.<span class="block"></span> 새로운
+              정보와 배우는것을 좋아합니다.
+
+            </p>
+            <p>
+              웹 개발은 혼자 하는 일이 아닌 만큼 사람들 간의 의사소통과 긍정적인
+              마인드가 중요하다고 생각합니다.<span class="block"></span>
+              긍정적인 마인드를 가지고 원활한 의사소통을 위해 flexible한 사람이
+              되겠습니다.
+            </p>
+            <a
+              href="https://www.notion.so/f1bfba2293834c279510c3276a62ef83"
+              target="_blank"
+              class="resume"
+              >이력서 보기</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="skill">
+      <div class="wrap">
+        <h2>Skill</h2>
+        <div class="mainSkill" data-aos="fade-up" data-aos-duration="1500">
+          <div>
+            <h4>html,css</h4>
+            <p>
+              콘텐츠 내용에 알맞은 시맨틱 태그 사용과
+              <span class="block"></span> css로 애니메이션효과를
+              낼수있습니다.<span class="block"></span> 웹 표준 및 웹 접근성을
+              준수하여 반응형 레이아웃을 제작합니다.
+            </p>
+          </div>
+          <div>
+            <h4>Javascript</h4>
+            <p>
+              자바스크립트와 라이브러리인 제이쿼리를 활용하여 다양한
+              애니메이션과 기능을 구현할 수 있습니다.
+            </p>
+          </div>
+          <div>
+            <h4>Photoshop<span class="block"></span>illustrator</h4>
+            <p>
+              포토샵과 일러스트를 사용한 이미지 편집과
+              <span class="block"></span> 간단한 로고작업이 가능합니다.
+            </p>
+          </div>
+          <div>
+            <h4>figma<span class="block"></span>oven</h4>
+            <p>피그마와 카카오오븐을 통한 와이어프레임 제작이 가능합니다.</p>
+          </div>
+        </div>
+        <div class="moreSkill hide" data-aos="fade-up" data-aos-duration="3000">
+          <button type="button" class="more">추가 스킬+</button>
+          <ul class="subSkill">
+            <li class="GitHub">GitHub</li>
+            <li>SASS</li>
+            <li class="vue">vue.js</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio">
+      <div class="wrap">
+        <h2 class="h2">Portfoilo</h2>
+        <div class="work" data-aos="fade-up" data-aos-duration="3000">
+          <figure>
+            <img src="img/pf1.png" alt="pf1" />
+            <figcaption>
+              <h3>01.루나브루 반응형 리뉴얼</h3>
+              <p>
+                <strong>참여도/참여기간</strong> 개인프로젝트
+                100%(리디자인+코딩) 2일
+              </p>
+              <p>
+                <strong>사용 프로그램</strong> Visual Studio
+                Code,Photoshop,illustrator,카카오 오븐
+              </p>
+              <p>
+                <strong>프로젝트 소개</strong> 기존 사이트를 클론코딩한 후
+                문제점을 파악해 수정 사항을 정리하고
+                <span class="block"></span> 사용자가 다양한 정보를 얻을수있도록
+                리디자인 및 퍼블리싱한<span class="block"></span> 모바일 반응형
+                웹페이지 입니다.
+              </p>
+              <a
+                href="https://ovenapp.io/view/64jT23Liv0oXcwHJOwl5MQ0Ev03WkMMg/"
+                target="_blank"
+                >와이어프레임</a
+              >
+              <a
+                href="https://www.figma.com/file/J7ldybFwoOpc6X9xRLffGE/Untitled?t=7KqtpuEDrNzmdTr8-1"
+                target="_blank"
+                class="figma"
+                >Summary</a
+              >
+              <a href="https://ksyeong.github.io/pf3-mo" target="_blank"
+                >SITE</a
+              >
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="img/pf2.png" alt="pf2" />
+            <figcaption>
+              <h3>02. 현대건설 메인페이지</h3>
+              <p>
+                <strong>참여도/참여기간</strong> 개인프로젝트 100%(코딩) 1~2일
+              </p>
+              <p><strong>사용 프로그램</strong> Visual Studio Code</p>
+              <p>
+                <strong>프로젝트 소개</strong> css만으로 작업한
+                개인프로젝트로<span class="block"></span> SASS와 젠코딩을
+                활용하여 현대건설 메인페이지를 <span class="block"></span>
+                클론코딩 후 수정작업 했습니다.
+              </p>
+              <a
+                href="https://www.figma.com/file/FjGOKWnKRy5FxKEdyoGfN3/Untitled?node-id=0%3A1&t=7KqtpuEDrNzmdTr8-1"
+                target="_blank"
+                class="figma"
+                >Summary</a
+              >
+              <a href="https://ksyeong.github.io/pf2" target="_blank">SITE</a>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="img/person.png" alt="pf3" />
+            <figcaption>
+              <h3>03.개인 홈페이지 제작</h3>
+              <p>
+                <strong>참여도/참여기간</strong> 개인프로젝트 100%(디자인+코딩)
+                2~3일
+              </p>
+              <p>
+                <strong>사용 프로그램</strong> Visual Studio
+                Code,illustrator,Figma
+              </p>
+              <p>
+                <strong>프로젝트 소개</strong> 학습기간동안 배운 스킬들을
+                응용,활용하여 <span class="block"></span> 디자인 및 퍼블리싱을
+                한 개인포트폴리오용 사이트입니다.
+              </p>
+              <a
+                href="https://www.figma.com/file/NH48924qzSf1OuJcvPDwCG/Untitled?node-id=110%3A22&t=tIbHrOQlbgdI9Vtc-0"
+                target="_blank"
+                class="figma"
+                >Summary</a
+              >
+              <a href="https://ksyeong.github.io/person-js" target="_blank"
+                >SITE</a
+              >
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <div data-aos="fade-up" data-aos-duration="3000">
+          <h3>끝까지 봐주셔서 감사합니다 :)</h3>
+          <div class="hash">
+            <span
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              >#책임감</span
+            ><span
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              >#배우는것</span
+            ><span
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              >#유연한</span
+            ><span
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              >#긍정적</span
+            ><span
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              >#의사소통하는</span
+            >
+          </div>
+          <p>저는 맡은 일에 <strong>책임감</strong>을 가지고 일하며</p>
+          <p>배우고 <strong>성장</strong>하는 것을 좋아하고</p>
+          <p>
+            긍정적인 마인드와 <strong>의사소통</strong>에 적극적인 사람입니다
+          </p>
+          <address>
+            <ul>
+              <li>
+                <a
+                  class="kakao"
+                  href="https://open.kakao.com/o/slZO0TSe"
+                  target="_blank"
+                >
+                  <p>카카오톡</p>
+                  <p>birdzero_30</p>
+                </a>
+                <span>*클릭시 오픈채팅으로 연결됩니다.</span>
+              </li>
+              <li>
+                <div class="mail">
+                  <p>이메일</p>
+                  <p id="email">ttana42@naver.com</p>
+                  <button class="copy" onclick="copyToClipboard('#email')">
+                    Copy
+                  </button>
+                </div>
+                <a
+                  class="GitHub git"
+                  href="https://github.com/ksyeong"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >github</a
+                >
+              </li>
+            </ul>
+          </address>
+        </div>
+      </div>
+    </section>
+    <aside class="changecolor">
+      <ul>
+        <li class="day"><a href="">Light</a></li>
+        <li class="night"><a href="">Dark</a></li>
+      </ul>
+      <a class="top">Top</a>
+    </aside>
+    <div class="lotation">
+      <button class="ahome">Home</button>
+      <button class="aabout">About</button>
+      <button class="askill">Skill</button>
+      <button class="aport">Portfolio</button>
+      <button class="acontact">Contact</button>
+    </div>
+    <!-- 하단영역 -->
+    <footer>
+      <div class="wrap">
+        <h1 class="logo"><a href="">seyeong's</a></h1>
+        <p>
+          본 페이지는 상업적 목적이 아닌 개인 포트폴리용으로 제작되었습니다.
+        </p>
+        <p>Copyright 2022. Kimseyeong. All right reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
