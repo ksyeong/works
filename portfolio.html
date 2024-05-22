@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            // header include
+            $("#includedContent").load("./header.html");
+            // hover시 자세히보기
+            $('.pf').hover(function(){
+                $(this).children('.info').toggleClass('show');
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="includedContent"></div>
+    <div id="wrap">
+        <h1 class="title">Portfolio</h1>
+        <div id="pfs">
+            <div class="pf">
+                <img src="img/pf1.png" alt="루나브루 리디자인 반응형웹 ">
+                <div class="info hidden">
+                    <h2>01.루나브루 리디자인</h2>
+                    <p> <b>참여도</b> <br/> 개인(100%)</p>
+                    <p> <b>프로젝트 설명</b>  <br/> 맥주와 비슷한 바닷가 이미지를 배경으로 <br/> 맥주 특유의 시원함을 강조하여 <br/> 디자인한 웹페이지 입니다.</p>
+                    <div class="link">
+                        <a href="https://ovenapp.io/view/64jT23Liv0oXcwHJOwl5MQ0Ev03WkMMg/" target="_blank">와이어프레임</a>
+                        <a href="https://www.figma.com/file/J7ldybFwoOpc6X9xRLffGE/Untitled?t=7KqtpuEDrNzmdTr8-1" target="_blank">자세히보기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pf">
+                <img src="img/pf2.png" alt="현대건설 클론코딩">
+                <div class="info hidden">
+                    <h2>02.현대건설 메인페이지</h2>
+                    <p><b>참여도</b> <br/> 개인(100%)</p>
+                    <p><b>프로젝트 설명</b> <br/> 현대건설의 메인페이지를 Javascript없이 <br/> css애니메이션만 사용하여 작업한 <br/> 프로젝트입니다.</p>
+                    <div class="link">
+                        <a href="https://www.figma.com/file/FjGOKWnKRy5FxKEdyoGfN3/Untitled?node-id=0%3A1&t=9JBl9ejSY5dDcxzH-0" target="_blank">자세히보기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pf">
+                    <img src="img/pf3.png" alt="개인포트폴리오">
+                <div class="info hidden">
+                    <h2>03.개인포트폴리오</h2>
+                    <p><b>참여도</b> <br/> 개인(100%)</p>
+                    <p><b>프로젝트 설명</b> <br/> 따뜻하고 편안한 느낌을 주는 핑크,<br/> 로고는 넓은바다를 헤엄치는 어류를 형상화하여   <br/> 디자인을 하였습니다. </p>
+                    <div class="link">
+                        <a href="https://www.figma.com/file/fPzWmSa2CRGSPRXewxTSE3/Untitled?node-id=0%3A1&t=H2mVy6mWMI8OPOgh-0" target="_blank">자세히보기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pf">
+                <img src="img/pf4.png" alt="캔들 쇼핑몰"/>
+            <div class="info hidden">
+                <h2>04.쇼핑몰 디자인</h2>
+                <p><b>참여도</b> <br/> 개인(100%)</p>
+                <p><b>프로젝트 설명</b> <br/>  관심 있던 아이템들을  <br/> 조합하여 직접 구상해 본 <br/> 쇼핑몰 사이트입니다. </p>
+                <div class="link">
+                    <a href="https://www.figma.com/file/bGdzKUVNkrPjCxZvivdcJR/pf4?node-id=0%3A1&t=mdmynnUgiI3NNAxx-0" target="_blank">자세히보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="pf">
+            <img src="img/pf5.jpg" alt="헤이딘코퍼레이션"/>
+        <div class="info hidden">
+            <h2>05.헤이딘코퍼레이션(유지보수)</h2>
+            <p><b>참여도</b> <br/>개인(100%)</p>
+            <p><b>프로젝트설명</b> <br/> 기존의 홈페이지에서<br/>변동사항을 반영하여<br/> 이미지변경 및 수정하였습니다. </p>
+            <div class="link">
+                <a href="https://www.figma.com/file/gIWBwNogvf6UY6xxZfSHAO/heydin?type=design&node-id=0-1&mode=design&t=tTknTE2hcTkQO0Pw-0" target="_blank">자세히보기</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <span class="span">
+        *이미지에 마우스를 올리면 디자인을 자세히 볼 수 있습니다.
+    </span>
+        <footer>
+            <p>본 페이지는 상업적 목적이 아닌 개인 포트폴리용으로 제작되었습니다.</p>
+            <p>Copyright 2023. Kimseyeong. All right reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
